@@ -1,0 +1,14 @@
+<launch>
+
+  <arg name="invalid_ids_config_file"   value="$(find cultureid_interpolate_poles_rays)/config/invalid_poles_ids.yaml" />
+
+  <node name="cultureid_interpolate_poles_rays" pkg="cultureid_interpolate_poles_rays" type="cultureid_interpolate_poles_rays_node" output="screen">
+    <param name="base_scan_topic"      value="/base_scan" />
+    <param name="output_scan_topic"    value="/scan" />
+    <param name="value_invalid"        value="0.0" />
+    <param name="do_interpolate"       value="false" />
+
+    <rosparam command="load" file="$(arg invalid_ids_config_file)" />
+  </node>
+
+</launch>
